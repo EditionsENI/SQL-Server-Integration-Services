@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="WideWorldImportersDW"
+  DTS:DTSID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=blogchs.database.windows.net,1433;User ID=scharly3;Initial Catalog=WideWorldImportersDW;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPl0E2L5mN0aGuwA9aXqAjwAAAAACAAAAAAAQZgAAAAEAACAAAABFEE23ldkNnuJq+0h8UNxrwhUDyFSCI5xzRkZXzuhKLQAAAAAOgAAAAAIAACAAAACswHAlbDGwDxUF4MHHn0imZ5YClO5LcM+6np/XuzUmMYAAAACC5RGsN2P4dqfF5cjS4Vxb6+GAWxVvk3I8aMDBZqPovqc7XNFGtx6SxiFLyWD/OHa4QRWHOOIbB2iOk3/hng6aKePNo7i1DLFEOGsg2OpU6387K1lniBhapYtKyrwZ8/7nnOeUkZ7ci2biow08spWqRCsYw/zlLM/FzTuEtFfZekAAAAA9E7zD+BJs7PeA2YhUzIe1mLYkpX/9VnYc7AgdZ1c7vVAgFAMSpkbUgz4tZJ79owYkFHvMEvhAUwulUSSnOctp</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

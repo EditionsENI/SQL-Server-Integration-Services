@@ -1,0 +1,1030 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2018 5:51:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{B42BA165-6ED5-4435-9739-AD090EC76C79}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 3 1 - 3 3 2 Azure Blob"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{70A330F9-248F-40F8-BA47-0AE96C5E6703}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Destination Blob"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{E6C13459-9A8A-4502-B58D-46B8C758377E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Destination Blob"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Destination Blob\Azure Blob Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="© Microsoft Corporation; All Rights Reserved;"
+              description="Loads data into a blob in Azure Storage. The supported file formats are: Text and Avro."
+              name="Azure Blob Destination"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of blob container"
+                  expressionType="Notify"
+                  name="Blob Container">sourceblob</property>
+                <property
+                  dataType="System.String"
+                  description="The full name of blob"
+                  expressionType="Notify"
+                  name="Blob Name">city.avro</property>
+                <property
+                  dataType="System.Int32"
+                  description="The format of blob file"
+                  name="Blob Format"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzBlobFormatEnumStringConverter">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Compress File"
+                  name="Compress File">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression type"
+                  name="Compression Type"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionTypeEnumStringConverter">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression level"
+                  name="Compression Level"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionLevelEnumStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  name="Column Delimiter">,</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  name="First Row as Column Names">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">AzBlobDest</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Destination Blob\Azure Blob Destination.Connections[Azure Storage]"
+                  connectionManagerID="{A42C8D74-6FAD-435C-BE02-7763401DCB52}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Blob Storage]"
+                  description="Connection Manager for Azure Storage"
+                  name="Azure Storage" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input]"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input].ExternalColumns[Country]"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input].ExternalColumns[City]"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].Columns[City]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="60"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT - Destination Blob\OLE_SRC - SQL"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - SQL"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Dimension].[City]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Country]"
+                      length="60"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[City]"
+                      length="50"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[City Key]"
+                      dataType="i4"
+                      name="City Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[WWI City ID]"
+                      dataType="i4"
+                      name="WWI City ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[State Province]"
+                      dataType="wstr"
+                      length="50"
+                      name="State Province" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="60"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Continent]"
+                      dataType="wstr"
+                      length="30"
+                      name="Continent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Sales Territory]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sales Territory" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="30"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Subregion]"
+                      dataType="wstr"
+                      length="30"
+                      name="Subregion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Location]"
+                      dataType="image"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Latest Recorded Population]"
+                      dataType="i8"
+                      name="Latest Recorded Population" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      name="Valid From"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      name="Valid To"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[Country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[City]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie d'erreur de source OLE DB].Columns[City]"
+                      name="City" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Destination Blob.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT - Destination Blob\Azure Blob Destination.Inputs[Input]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT - Destination Blob\OLE_SRC - SQL.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Source Blob"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{187CBE49-1D62-4060-A37B-193B745D3D6E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Source Blob"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="© Microsoft Corporation; All Rights Reserved;"
+              description="Extracts data from a blob in Azure Storage. The supported file formats are: Text and Avro."
+              name="BLOB_SRC - Hotspot"
+              usesDispositions="true"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of blob container"
+                  expressionType="Notify"
+                  name="Blob Container">sourceblob</property>
+                <property
+                  dataType="System.String"
+                  description="The full name of blob"
+                  expressionType="Notify"
+                  name="Blob Name">hotspots_paris_wi-fi.csv</property>
+                <property
+                  dataType="System.Int32"
+                  description="The format of blob file"
+                  name="Blob Format"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzBlobFormatEnumStringConverter">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Compress File"
+                  name="Compress File">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression type"
+                  name="Compression Type"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionTypeEnumStringConverter">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression level"
+                  name="Compression Level"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionLevelEnumStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  name="Column Delimiter">;</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  name="First Row as Column Names">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">AzBlobSrc</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Connections[Azure Storage]"
+                  connectionManagerID="{A42C8D74-6FAD-435C-BE02-7763401DCB52}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Blob Storage]"
+                  description="Connection Manager for Azure Storage"
+                  name="Azure Storage" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[start_time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[start_time]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[start_time]"
+                      name="start_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[stop_time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[stop_time]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[stop_time]"
+                      name="stop_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[duration]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[duration]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[duration]"
+                      name="duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[input_octets]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[input_octets]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[input_octets]"
+                      name="input_octets"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[output_octets]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[output_octets]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[output_octets]"
+                      name="output_octets"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[os]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[os]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[os]"
+                      name="os"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[browser]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[browser]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[browser]"
+                      name="browser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[device]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[device]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[device]"
+                      name="device"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[langue]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[langue]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[langue]"
+                      name="langue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[site]"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[site]"
+                      name="site"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[start_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="start_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[stop_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="stop_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[duration]"
+                      dataType="wstr"
+                      length="255"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[input_octets]"
+                      dataType="wstr"
+                      length="255"
+                      name="input_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[output_octets]"
+                      dataType="wstr"
+                      length="255"
+                      name="output_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[os]"
+                      dataType="wstr"
+                      length="255"
+                      name="os" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[browser]"
+                      dataType="wstr"
+                      length="255"
+                      name="browser" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[device]"
+                      dataType="wstr"
+                      length="255"
+                      name="device" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[langue]"
+                      dataType="wstr"
+                      length="255"
+                      name="langue" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[site]"
+                      dataType="wstr"
+                      length="255"
+                      name="site" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[start_time]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[start_time]"
+                      name="start_time" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[stop_time]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[stop_time]"
+                      name="stop_time" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[duration]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[duration]"
+                      name="duration" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[input_octets]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[input_octets]"
+                      name="input_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[output_octets]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[output_octets]"
+                      name="output_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[os]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[os]"
+                      name="os" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[browser]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[browser]"
+                      name="browser" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[device]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[device]"
+                      name="device" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[langue]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[langue]"
+                      name="langue" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Error output].Columns[site]"
+                      name="site" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Source Blob\OLE_DST - SQL"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - SQL"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[test]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Source Blob\OLE_DST - SQL.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[start_time]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="start_time"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[start_time]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[start_time]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[stop_time]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="stop_time"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[stop_time]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[stop_time]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[duration]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="duration"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[duration]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[duration]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[input_octets]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="input_octets"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[input_octets]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[input_octets]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[output_octets]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="output_octets"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[output_octets]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[output_octets]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[os]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="os"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[os]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[os]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[browser]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="browser"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[browser]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[browser]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[device]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="device"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[device]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[device]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[langue]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="langue"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[langue]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[langue]" />
+                    <inputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].Columns[site]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="site"
+                      externalMetadataColumnId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[site]"
+                      lineageId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output].Columns[site]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[start_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="start_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[stop_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="stop_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[duration]"
+                      dataType="wstr"
+                      length="255"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[input_octets]"
+                      dataType="wstr"
+                      length="255"
+                      name="input_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[output_octets]"
+                      dataType="wstr"
+                      length="255"
+                      name="output_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[os]"
+                      dataType="wstr"
+                      length="255"
+                      name="os" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[browser]"
+                      dataType="wstr"
+                      length="255"
+                      name="browser" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[device]"
+                      dataType="wstr"
+                      length="255"
+                      name="device" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[langue]"
+                      dataType="wstr"
+                      length="255"
+                      name="langue" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB].ExternalColumns[site]"
+                      dataType="wstr"
+                      length="255"
+                      name="site" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Source Blob\OLE_DST - SQL.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Source Blob\OLE_DST - SQL.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Source Blob\OLE_DST - SQL.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Source Blob\OLE_DST - SQL.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Source Blob.Paths[Output]"
+              endId="Package\DFT - Source Blob\OLE_DST - SQL.Inputs[Entrée de destination OLE DB]"
+              name="Output"
+              startId="Package\DFT - Source Blob\BLOB_SRC - Hotspot.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DFT - Destination Blob"
+          TopLeft="31.5,116.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DFT - Source Blob"
+          TopLeft="277,116.5" />
+        <AnnotationLayout
+          Text="Exemple d'utilisation d'une source et destination Azure Blob Storage&#xD;&#xA;Les chaînes de connexions sont à changer"
+          ParentId="Package"
+          Size="359,60"
+          Id="e37978be-2315-41b6-935d-6b58146ac377"
+          TopLeft="58,28">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Destination Blob">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\DFT - Destination Blob\OLE_SRC - SQL"
+          TopLeft="22.5,5.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT - Destination Blob\Azure Blob Destination"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\DFT - Destination Blob.Paths[Sortie de source OLE DB]"
+          TopLeft="98.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Destination Blob\Azure Blob Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Destination Blob\OLE_SRC - SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT - Source Blob">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\DFT - Source Blob\OLE_DST - SQL"
+          TopLeft="17.5,107.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT - Source Blob\BLOB_SRC - Hotspot"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\DFT - Source Blob.Paths[Output]"
+          TopLeft="93.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Source Blob\BLOB_SRC - Hotspot">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Source Blob\OLE_DST - SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

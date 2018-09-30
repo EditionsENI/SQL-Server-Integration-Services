@@ -1,0 +1,215 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2018 6:17:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{53DFD2A3-1137-443B-AAD2-E6C4A9BF6E99}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="2 3 4 - 2 3 5 Source Dest - HDFS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{8F7480AD-943B-4707-B013-95F658BB9DD5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - HDFS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{BA569358-0823-4FA3-BB3D-8E1A3536C70D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - HDFS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - HDFS\Destination du fichier HDFS"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Charge les données dans un fichier dans HDFS. Les formats de fichier pris en charge sont : texte, Avro, Orc."
+              name="Destination du fichier HDFS"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom du fichier HDFS"
+                  expressionType="Notify"
+                  name="FilePath">/haddark/drivers.orc</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Noms de colonne dans la première ligne de données"
+                  expressionType="Notify"
+                  name="FirstRowAsColumnNames">false</property>
+                <property
+                  dataType="System.String"
+                  description="Caractère utilisé pour délimiter les colonnes dans le fichier texte"
+                  expressionType="Notify"
+                  name="ColumnDelimiter">,</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Activer le mode batch"
+                  expressionType="Notify"
+                  name="IsBatchMode">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Taille de lot"
+                  expressionType="Notify"
+                  name="BatchSize">10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="File Format"
+                  expressionType="Notify"
+                  name="FileFormat">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">HdfsDest</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - HDFS\Destination du fichier HDFS.Connections[Gestionnaire de connexions Hadoop]"
+                  connectionManagerID="{FEC0C326-8D9D-4E9D-AF89-C58410387508}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Hadoop]"
+                  name="Gestionnaire de connexions Hadoop" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - HDFS\Destination du fichier HDFS.Inputs[Input]"
+                  hasSideEffects="true"
+                  name="Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT - HDFS\Source du fichier HDFS"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="MicrosoftContactInfo"
+              description="Extrait les données d'un fichier dans HDFS. Les formats de fichier pris en charge sont : texte, Avro."
+              name="Source du fichier HDFS"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom du fichier HDFS"
+                  expressionType="Notify"
+                  name="FilePath">/haddard/drivers.csv</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Noms de colonne dans la première ligne de données"
+                  expressionType="Notify"
+                  name="FirstRowAsColumnNames">true</property>
+                <property
+                  dataType="System.String"
+                  description="Caractère utilisé pour délimiter les colonnes dans le fichier texte"
+                  name="ColumnDelimiter">,</property>
+                <property
+                  dataType="System.Int32"
+                  description="Caractère utilisé pour délimiter les colonnes dans le fichier texte"
+                  name="FileFormat">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">HdfsSource</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - HDFS\Source du fichier HDFS.Connections[Gestionnaire de connexions Hadoop]"
+                  connectionManagerID="{FEC0C326-8D9D-4E9D-AF89-C58410387508}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Hadoop]"
+                  description="Il sert à connecter le cluster Hadoop"
+                  name="Gestionnaire de connexions Hadoop" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - HDFS\Source du fichier HDFS.Outputs[Output]"
+                  name="Output">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - HDFS\Source du fichier HDFS.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - HDFS\Source du fichier HDFS.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - HDFS\Source du fichier HDFS.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - HDFS\Source du fichier HDFS.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - HDFS\Source du fichier HDFS.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\DFT - HDFS"
+          TopLeft="184,141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - HDFS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\DFT - HDFS\Source du fichier HDFS"
+          TopLeft="194,141" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT - HDFS\Destination du fichier HDFS"
+          TopLeft="484,167" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - HDFS\Destination du fichier HDFS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - HDFS\Source du fichier HDFS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

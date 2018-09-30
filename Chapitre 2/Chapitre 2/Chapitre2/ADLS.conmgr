@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADLS"
+  DTS:DTSID="{6ED6FC6F-A83B-4EE6-861C-19AA0FA02868}"
+  DTS:CreationName="AzureDataLake">
+  <DTS:ObjectData>
+    <HadoopConnectionManager
+      ConnectionString="WebHdfsHost=livre.azuredatalakestore.net;WebHdfsPort=443;WebHdfsUserName=chsauget@scop-it.com;WebHdfsAuthType=AzureADUserIdentity;WebHdfsDomain=;WebHdfsIsHttps=True;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

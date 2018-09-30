@@ -1,0 +1,99 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2018 6:15:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{781ABDEB-C827-49A6-B77E-6A4A731DAE6E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="10"
+  DTS:ObjectName="3 4 1 Système de fichier Hadoop"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{B5B5F2F6-1AEE-4C4F-ACB7-5541B30CC847}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Hadoop]"
+      DTS:CreationName="Hadoop"
+      DTS:DTSID="{6D8E0415-DC84-41E8-88CC-41661396AAA5}"
+      DTS:ObjectName="Gestionnaire de connexions Hadoop">
+      <DTS:ObjectData>
+        <HadoopConnectionManager
+          ConnectionString="WebHdfsHost=52.138.205.51;WebHdfsPort=50070;WebHdfsUserName=haddark;WebHCatHost=52.138.205.51;WebHCatPort=50111;WebHCatUser=haddark;EnableWebHdfs=True;EnableWebHCat=False;WebHdfsAuthType=Basic;WebHdfsDomain=;WebHCatAuthType=Basic;WebHCatDomain=;WebHdfsIsHttps=False;WebHCatIsHttps=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Wifi.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{1C6EDCBC-744F-43CE-BC4B-93152DA5D92D}"
+      DTS:ObjectName="Wifi.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\GIT\Livre%20SSIS\Scripts\Chapitre 2\Fichiers démo\ADLS\hotspots_paris_wi-fi.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche du système de fichiers Hadoop"
+      DTS:CreationName="HadoopFileSystemTask"
+      DTS:Description="Tâche du système de fichiers Hadoop"
+      DTS:DTSID="{A870BB30-4FDC-4269-8A85-ED60E9763D6D}"
+      DTS:ExecutableType="HadoopFileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche du système de fichiers Hadoop"
+      DTS:TaskContact="Hadoop File System Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <HadoopFileSystemTask
+          LocalFilePathId="{1C6EDCBC-744F-43CE-BC4B-93152DA5D92D}"
+          HadoopConnectionId="{6D8E0415-DC84-41E8-88CC-41661396AAA5}"
+          Operation="CopyToHDFS"
+          HadoopFilePath="/user/haddark/toto.csv"
+          HadoopFileType="File" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Tâche du système de fichiers Hadoop"
+          TopLeft="151,118" />
+        <AnnotationLayout
+          Text="Exemple de chargement d'un fichier csv dans un cluster HDFS"
+          ParentId="Package"
+          Size="330,60"
+          Id="f1af706f-f535-4cef-bffc-de4ba22a83b5"
+          TopLeft="115,67">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

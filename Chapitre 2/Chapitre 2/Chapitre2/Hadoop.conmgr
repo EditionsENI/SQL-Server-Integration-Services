@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Hadoop"
+  DTS:DTSID="{FEC0C326-8D9D-4E9D-AF89-C58410387508}"
+  DTS:CreationName="Hadoop">
+  <DTS:ObjectData>
+    <HadoopConnectionManager
+      ConnectionString="WebHdfsHost=52.138.205.51;WebHdfsPort=50070;WebHdfsUserName=haddark;WebHCatHost=52.138.205.51;WebHCatPort=50111;WebHCatUser=haddark;EnableWebHdfs=True;EnableWebHCat=True;WebHdfsAuthType=Basic;WebHdfsDomain=;WebHCatAuthType=Basic;WebHCatDomain=;WebHdfsIsHttps=False;WebHCatIsHttps=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

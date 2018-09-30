@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/5/2018 9:37:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-73KFTOG"
+  DTS:CreatorName="AzureAD\Charles-HenriSauget"
+  DTS:DTSID="{E80D137E-8EE8-47EA-908C-C1C8158846B9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 1 1 - 3 1 2 Tâche Azure Blob"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{51A3DEB3-3676-415A-AEC8-44C2B38035E4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Azure Blob Download Task"
+      DTS:CreationName="CopyFromBlobTask"
+      DTS:Description="Azure Blob Download Task"
+      DTS:DTSID="{810F0696-1828-4025-AC62-B1BBD0830F4F}"
+      DTS:ExecutableType="CopyFromBlobTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure Blob Download Task"
+      DTS:TaskContact="Azure Blob Download Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CopyFromBlobTask
+          ConnectionId="{A42C8D74-6FAD-435C-BE02-7763401DCB52}"
+          BlobContainer="livre"
+          LocalDirectory="D:\GIT\Livre%20SSIS\Scripts\Chapitre 2\Fichiers démo\Azure Blob Storage"
+          FileNameFilter="*"
+          TimeRangeFrom="01/01/1900 00:00:00 +02:00"
+          TimeRangeTo="31/12/2200 00:00:00 +02:00" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Azure Blob Upload Task"
+      DTS:CreationName="CopyToBlobTask"
+      DTS:Description="Azure Blob Upload Task"
+      DTS:DTSID="{D8CD43BA-6361-4C08-84B2-F0F71ECC1C82}"
+      DTS:ExecutableType="CopyToBlobTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure Blob Upload Task"
+      DTS:TaskContact="Azure Blob Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CopyToBlobTask
+          ConnectionId="{A42C8D74-6FAD-435C-BE02-7763401DCB52}"
+          BlobContainer="livre"
+          BlobDirectory="dir/"
+          LocalDirectory="D:\GIT\Livre%20SSIS\Scripts\Chapitre 2\Fichiers démo\Azure Blob Storage"
+          FileNameFilter="*.txt"
+          TimeRangeFrom="01/01/1900 00:00:00 +02:00"
+          TimeRangeTo="31/12/2200 00:00:00 +02:00" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Azure Blob Download Task"
+          TopLeft="174,217" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Azure Blob Upload Task"
+          TopLeft="417,217" />
+        <AnnotationLayout
+          Text="Afin que les tâches fonctionnes, il faudra au préalable modifier : &#xD;&#xA;- Les informations de connexion au blob storage&#xD;&#xA;- Les chemins"
+          ParentId="Package"
+          Size="343,64"
+          Id="a9f4126b-4bb7-4223-b09e-11872b27bc3c"
+          TopLeft="216,137">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

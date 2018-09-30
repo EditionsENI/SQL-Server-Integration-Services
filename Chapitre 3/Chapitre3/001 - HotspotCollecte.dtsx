@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/23/2018 9:39:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\pharel"
+  DTS:DTSID="{BF9435F7-CA73-47D0-B619-8D86E589D4F4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.106"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="001 - HotspotCollecte"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{820B07D7-4120-413A-AAE8-047564EEBCD5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_FichierWifi]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EEF8830C-7D88-417C-B715-4F5D461C24C7}"
+      DTS:ObjectName="FF_FichierWifi">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::CheminFichierWifi]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\UsersDesktop\Scripts\Chapitre 2\SQL DW\hotspots_paris_wifi_1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="start_time"
+              DTS:DTSID="{B2D5287E-9270-4966-88C7-A9050DC8755D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="stop_time"
+              DTS:DTSID="{1E800BB4-098E-4207-A46D-FD66F75DC482}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{C20E0DF9-1C30-4BD8-AD02-D514137F2F67}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="input_octets"
+              DTS:DTSID="{F34BD530-20E4-4C6C-B853-E86512DA38F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="output_octets"
+              DTS:DTSID="{20894713-2622-4CE1-9804-F2EC5A579B75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="os"
+              DTS:DTSID="{77DF0564-2003-42E0-901F-18BFAAF6064A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="browser"
+              DTS:DTSID="{BAB0DC18-544B-44BE-991A-EE27378AA580}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="device"
+              DTS:DTSID="{7A9A3B98-81DA-47A3-96E8-FA111AF03E87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="langue"
+              DTS:DTSID="{B5769CB4-B4B6-4954-800B-74B71F95C190}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="site"
+              DTS:DTSID="{B0D87355-E322-434C-BEB6-47DDE478D3DA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EF47A660-4A61-4888-AE72-59DD830BCBF9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CheminFichierWifi">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\UsersDesktop\Scripts\Chapitre 2\SQL DW\hotspots_paris_wifi_1.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EST - Truncate stg_Wifi"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{558247FB-0A8D-4782-A27C-3D51A3F51610}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST - Truncate stg_Wifi"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1396D28D-E588-4ABA-8174-F8CE02AA1550}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.HotspotCollecte" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FEL - FichierWifi"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Conteneur de boucles Foreach"
+      DTS:DTSID="{C447CDED-A826-47FF-84A7-000E408BA44A}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FEL - FichierWifi">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{AB9632A5-57CF-4AAA-BD87-AC338AC96379}"
+        DTS:ObjectName="{AB9632A5-57CF-4AAA-BD87-AC338AC96379}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::RepertoireCSV]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\pharel\Desktop\Scripts\Chapitre 2\SQL DW\" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FEL - FichierWifi\DFT - stg_Wifi"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{6A8D4DEE-6D1D-4A4A-8634-79380745F9C0}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT - stg_Wifi"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+                  description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+                  name="DC - FichierSource"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Inputs[Entrée de colonne dérivée]"
+                      description="Entrée de la transformation de colonnes dérivées"
+                      name="Entrée de colonne dérivée">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie de colonne dérivée]"
+                      description="Sortie par défaut de la transformation de colonnes dérivées"
+                      exclusionGroup="1"
+                      name="Sortie de colonne dérivée"
+                      synchronousInputId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Inputs[Entrée de colonne dérivée]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie de colonne dérivée].Columns[FichierSource]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Calcul"
+                          errorRowDisposition="FailComponent"
+                          length="75"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie de colonne dérivée].Columns[FichierSource]"
+                          name="FichierSource"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression de colonne dérivée"
+                              name="Expression">@[User::CheminFichierWifi]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Expression claire de colonne dérivée"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::CheminFichierWifi]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie d'erreur de colonne dérivée]"
+                      description="Sortie d'erreur de la transformation de colonnes dérivées"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de colonne dérivée"
+                      synchronousInputId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Inputs[Entrée de colonne dérivée]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+                  description="Source du fichier plat"
+                  localeId="1036"
+                  name="FF_SRC - Wifi"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FF_FichierWifi]"
+                      connectionManagerRefId="Package.ConnectionManagers[FF_FichierWifi]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat]"
+                      name="Sortie de source de fichier plat">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[start_time]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[start_time]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[start_time]"
+                          name="start_time"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[stop_time]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[stop_time]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[stop_time]"
+                          name="stop_time"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[duration]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[duration]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[duration]"
+                          name="duration"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[input_octets]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[input_octets]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[input_octets]"
+                          name="input_octets"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[output_octets]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[output_octets]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[output_octets]"
+                          name="output_octets"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[os]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[os]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[os]"
+                          name="os"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[browser]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[browser]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[browser]"
+                          name="browser"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[device]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[device]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[device]"
+                          name="device"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[langue]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[langue]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[langue]"
+                          name="langue"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[site]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[site]"
+                          length="50"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[site]"
+                          name="site"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indique si les données sont au format binaire."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[start_time]"
+                          dataType="wstr"
+                          length="50"
+                          name="start_time" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[stop_time]"
+                          dataType="wstr"
+                          length="50"
+                          name="stop_time" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[duration]"
+                          dataType="wstr"
+                          length="50"
+                          name="duration" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[input_octets]"
+                          dataType="wstr"
+                          length="50"
+                          name="input_octets" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[output_octets]"
+                          dataType="wstr"
+                          length="50"
+                          name="output_octets" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[os]"
+                          dataType="wstr"
+                          length="50"
+                          name="os" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[browser]"
+                          dataType="wstr"
+                          length="50"
+                          name="browser" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[device]"
+                          dataType="wstr"
+                          length="50"
+                          name="device" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[langue]"
+                          dataType="wstr"
+                          length="50"
+                          name="langue" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].ExternalColumns[site]"
+                          dataType="wstr"
+                          length="50"
+                          name="site" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat]"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de source de fichier plat">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Colonne de sortie d'erreur de source de fichier plat"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                          name="Colonne de sortie d'erreur de source de fichier plat" />
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+                  description="Destination OLE DB"
+                  name="OLE_DST - stg_HotspotCollecte"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowset">[stg].[HotspotCollecte]</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le mode utilisé pour accéder à la base de données."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Connections[OleDbConnection]"
+                      connectionManagerID="{1396D28D-E588-4ABA-8174-F8CE02AA1550}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[OLE_Hotspot]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB]"
+                      errorOrTruncationOperation="Insérer"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de destination OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[start_time]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="start_time"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[start_time]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[start_time]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[stop_time]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="stop_time"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[stop_time]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[stop_time]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[duration]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="duration"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[duration]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[duration]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[input_octets]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="input_octets"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[input_octets]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[input_octets]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[output_octets]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="output_octets"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[output_octets]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[output_octets]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[os]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="os"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[os]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[os]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[browser]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="browser"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[browser]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[browser]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[device]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="device"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[device]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[device]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[langue]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="langue"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[langue]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[langue]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[site]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="site"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[site]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat].Columns[site]" />
+                        <inputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].Columns[FichierSource]"
+                          cachedDataType="wstr"
+                          cachedLength="75"
+                          cachedName="FichierSource"
+                          externalMetadataColumnId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[FichierSource]"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie de colonne dérivée].Columns[FichierSource]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[start_time]"
+                          dataType="wstr"
+                          length="50"
+                          name="start_time" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[stop_time]"
+                          dataType="wstr"
+                          length="50"
+                          name="stop_time" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[duration]"
+                          dataType="wstr"
+                          length="50"
+                          name="duration" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[input_octets]"
+                          dataType="wstr"
+                          length="50"
+                          name="input_octets" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[output_octets]"
+                          dataType="wstr"
+                          length="50"
+                          name="output_octets" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[os]"
+                          dataType="wstr"
+                          length="50"
+                          name="os" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[browser]"
+                          dataType="wstr"
+                          length="50"
+                          name="browser" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[device]"
+                          dataType="wstr"
+                          length="50"
+                          name="device" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[langue]"
+                          dataType="wstr"
+                          length="50"
+                          name="langue" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[site]"
+                          dataType="wstr"
+                          length="50"
+                          name="site" />
+                        <externalMetadataColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB].ExternalColumns[FichierSource]"
+                          dataType="wstr"
+                          length="75"
+                          name="FichierSource" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Outputs[Sortie d'erreur de destination OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de destination OLE DB"
+                      synchronousInputId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FEL - FichierWifi\DFT - stg_Wifi.Paths[Sortie de colonne dérivée]"
+                  endId="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte.Inputs[Entrée de destination OLE DB]"
+                  name="Sortie de colonne dérivée"
+                  startId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Outputs[Sortie de colonne dérivée]" />
+                <path
+                  refId="Package\FEL - FichierWifi\DFT - stg_Wifi.Paths[Sortie de source de fichier plat]"
+                  endId="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource.Inputs[Entrée de colonne dérivée]"
+                  name="Sortie de source de fichier plat"
+                  startId="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi.Outputs[Sortie de source de fichier plat]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C8570E60-D66B-44C6-B74D-FEC2CD5DE73C}"
+          DTS:ObjectName="{C8570E60-D66B-44C6-B74D-FEC2CD5DE73C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::CheminFichierWifi" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{3101F9B9-F60F-4E2E-8D47-8FA716C50FBE}"
+      DTS:From="Package\EST - Truncate stg_Wifi"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\FEL - FichierWifi" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\EST - Truncate stg_Wifi"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\FEL - FichierWifi\DFT - stg_Wifi"
+          TopLeft="5.5,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="158,103"
+          Size="158,146"
+          Id="Package\FEL - FichierWifi"
+          TopLeft="22,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="101,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FEL - FichierWifi\DFT - stg_Wifi">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\FEL - FichierWifi\DFT - stg_Wifi\FF_SRC - Wifi"
+          TopLeft="49,5.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\FEL - FichierWifi\DFT - stg_Wifi\DC - FichierSource"
+          TopLeft="38,107.5" />
+        <EdgeLayout
+          Id="Package\FEL - FichierWifi\DFT - stg_Wifi.Paths[Sortie de source de fichier plat]"
+          TopLeft="120.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FEL - FichierWifi\DFT - stg_Wifi.Paths[Sortie de colonne dérivée]"
+          TopLeft="120,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FEL - FichierWifi\DFT - stg_Wifi\OLE_DST - stg_HotspotCollecte">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

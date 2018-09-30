@@ -1,0 +1,84 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2018 6:15:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{3D2D58C4-BD81-4015-BDBC-9CC614751648}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.101"
+  DTS:LocaleID="1036"
+  DTS:MaxErrorCount="10"
+  DTS:ObjectName="3 4 2 - 3 4 3 Hadoop Hive et Pig"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{BAD7BD9D-FEFE-4393-B5BD-95C990F8BE83}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche Hadoop Hive"
+      DTS:CreationName="HadoopHiveTask"
+      DTS:Description="Tâche Hadoop Hive"
+      DTS:DTSID="{03264CDE-8183-41CA-9145-67AAE2EEEC22}"
+      DTS:ExecutableType="HadoopHiveTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche Hadoop Hive"
+      DTS:TaskContact="Hadoop Hive Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <HadoopHiveTask
+          HadoopConnectionId="{FEC0C326-8D9D-4E9D-AF89-C58410387508}"
+          SourceType="DirectInput"
+          InlineScript="SELECT 1;"
+          TimeoutInMinutes="1440" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tâche Hadoop Pig"
+      DTS:CreationName="HadoopPigTask"
+      DTS:Description="Tâche Hadoop Pig"
+      DTS:DTSID="{A19FFFC3-E3A3-4D08-B6A0-66608BC52B87}"
+      DTS:ExecutableType="HadoopPigTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche Hadoop Pig"
+      DTS:TaskContact="Hadoop Pig Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <HadoopPigTask
+          HadoopConnectionId="{FEC0C326-8D9D-4E9D-AF89-C58410387508}"
+          SourceType="ScriptFile"
+          ScriptFilePath="/user/haddark/Peppa.pig"
+          TimeoutInMinutes="1440" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Tâche Hadoop Hive"
+          TopLeft="92,170" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Tâche Hadoop Pig"
+          TopLeft="314,169" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

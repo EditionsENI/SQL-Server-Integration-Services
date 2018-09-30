@@ -1,0 +1,1111 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2018 7:05:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{63BAA00E-841F-4C28-83D7-B883EC38C64B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 5 1 Publication de flux de données"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{08EAC53B-D79B-42A6-92E3-6CD86FD9579A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Publication de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{4CEB8E9C-A722-4792-8097-63D6BE217507}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Publication de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Publication de données\Azure Data Lake Store Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="MicrosoftContactInfo"
+              description="Extracts data from a file in ADLS. The supported file formats are: Text, Avro."
+              name="Azure Data Lake Store Source"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of HDFS file"
+                  expressionType="Notify"
+                  name="FilePath">/Hotspot/hotspots_paris_wi-fi.csv</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  expressionType="Notify"
+                  name="FirstRowAsColumnNames">true</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  name="ColumnDelimiter">;</property>
+                <property
+                  dataType="System.Int32"
+                  description="The character used to delimit columns in text file"
+                  name="FileFormat">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">AdlsSource</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Connections[Azure Data Lake Connection Manager]"
+                  connectionManagerID="{6ED6FC6F-A83B-4EE6-861C-19AA0FA02868}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ADLS]"
+                  description="It's used to connect Hadoop cluster"
+                  name="Azure Data Lake Connection Manager" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[start_time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[start_time]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[start_time]"
+                      name="start_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[stop_time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[stop_time]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[stop_time]"
+                      name="stop_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[duration]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[duration]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[duration]"
+                      name="duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[input_octets]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[input_octets]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[input_octets]"
+                      name="input_octets"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[output_octets]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[output_octets]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[output_octets]"
+                      name="output_octets"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[os]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[os]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[os]"
+                      name="os"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[browser]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[browser]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[browser]"
+                      name="browser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[device]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[device]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[device]"
+                      name="device"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[langue]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[langue]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[langue]"
+                      name="langue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[site]"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[site]"
+                      name="site"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[start_time]"
+                      dataType="wstr"
+                      length="100"
+                      name="start_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[stop_time]"
+                      dataType="wstr"
+                      length="100"
+                      name="stop_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[duration]"
+                      dataType="wstr"
+                      length="100"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[input_octets]"
+                      dataType="wstr"
+                      length="100"
+                      name="input_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[output_octets]"
+                      dataType="wstr"
+                      length="100"
+                      name="output_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[os]"
+                      dataType="wstr"
+                      length="100"
+                      name="os" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[browser]"
+                      dataType="wstr"
+                      length="100"
+                      name="browser" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[device]"
+                      dataType="wstr"
+                      length="100"
+                      name="device" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[langue]"
+                      dataType="wstr"
+                      length="100"
+                      name="langue" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].ExternalColumns[site]"
+                      dataType="wstr"
+                      length="100"
+                      name="site" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[start_time]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[start_time]"
+                      name="start_time" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[stop_time]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[stop_time]"
+                      name="stop_time" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[duration]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[duration]"
+                      name="duration" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[input_octets]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[input_octets]"
+                      name="input_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[output_octets]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[output_octets]"
+                      name="output_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[os]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[os]"
+                      name="os" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[browser]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[browser]"
+                      name="browser" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[device]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[device]"
+                      name="device" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[langue]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[langue]"
+                      name="langue" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[site]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Error output].Columns[site]"
+                      name="site" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="© Microsoft Corporation; All Rights Reserved;"
+              description="Extracts data from a blob in Azure Storage. The supported file formats are: Text and Avro."
+              name="BLOB_SRC - Hotspot"
+              usesDispositions="true"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of blob container"
+                  expressionType="Notify"
+                  name="Blob Container">sourceblob</property>
+                <property
+                  dataType="System.String"
+                  description="The full name of blob"
+                  expressionType="Notify"
+                  name="Blob Name">hotspots_paris_wi-fi.csv</property>
+                <property
+                  dataType="System.Int32"
+                  description="The format of blob file"
+                  name="Blob Format"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzBlobFormatEnumStringConverter">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Compress File"
+                  name="Compress File">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression type"
+                  name="Compression Type"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionTypeEnumStringConverter">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The compression level"
+                  name="Compression Level"
+                  typeConverter="Microsoft.SqlServer.IntegrationService.CloudComponents.Utilities.AzCompressionLevelEnumStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  description="The character used to delimit columns in text file"
+                  name="Column Delimiter">;</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Column names in the first data row"
+                  name="First Row as Column Names">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">AzBlobSrc</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Connections[Azure Storage]"
+                  connectionManagerID="{A42C8D74-6FAD-435C-BE02-7763401DCB52}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Blob Storage]"
+                  description="Connection Manager for Azure Storage"
+                  name="Azure Storage" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[start_time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[start_time]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[start_time]"
+                      name="start_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[stop_time]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[stop_time]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[stop_time]"
+                      name="stop_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[duration]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[duration]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[duration]"
+                      name="duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[input_octets]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[input_octets]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[input_octets]"
+                      name="input_octets"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[output_octets]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[output_octets]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[output_octets]"
+                      name="output_octets"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[os]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[os]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[os]"
+                      name="os"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[browser]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[browser]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[browser]"
+                      name="browser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[device]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[device]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[device]"
+                      name="device"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[langue]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[langue]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[langue]"
+                      name="langue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[site]"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].Columns[site]"
+                      name="site"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[start_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="start_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[stop_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="stop_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[duration]"
+                      dataType="wstr"
+                      length="255"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[input_octets]"
+                      dataType="wstr"
+                      length="255"
+                      name="input_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[output_octets]"
+                      dataType="wstr"
+                      length="255"
+                      name="output_octets" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[os]"
+                      dataType="wstr"
+                      length="255"
+                      name="os" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[browser]"
+                      dataType="wstr"
+                      length="255"
+                      name="browser" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[device]"
+                      dataType="wstr"
+                      length="255"
+                      name="device" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[langue]"
+                      dataType="wstr"
+                      length="255"
+                      name="langue" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output].ExternalColumns[site]"
+                      dataType="wstr"
+                      length="255"
+                      name="site" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[start_time]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[start_time]"
+                      name="start_time" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[stop_time]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[stop_time]"
+                      name="stop_time" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[duration]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[duration]"
+                      name="duration" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[input_octets]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[input_octets]"
+                      name="input_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[output_octets]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[output_octets]"
+                      name="output_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[os]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[os]"
+                      name="os" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[browser]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[browser]"
+                      name="browser" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[device]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[device]"
+                      name="device" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[langue]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[langue]"
+                      name="langue" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Error output].Columns[site]"
+                      name="site" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Publication de données\Destination de diffusion des données en continu"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Expose les données d'un flux de données à d'autres applications via le fournisseur Microsoft OLE DB pour SQL Server Integration Services (SSISOLEDB). Les données exposées peuvent être consommées en exécutant des requêtes sur un serveur lié qui utilise le fournisseur SSISOLEDB.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://go.microsoft.com/fwlink/?LinkId=313934;0"
+              description="Expose les données d'un flux de données à d'autres applications via le fournisseur Microsoft OLE DB pour SQL Server Integration Services (SSISOLEDB). Les données exposées peuvent être consommées en exécutant des requêtes sur un serveur lié qui utilise le fournisseur SSISOLEDB."
+              name="Destination de diffusion des données en continu"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne d'ID. La colonne d'ID est générée automatiquement par le composant Destination de diffusion des données en continu et elle est utilisée comme EntityKey pour les données exposées par le flux de données. Ceci permet aux données de sortie d'être consommées comme flux OData par d'autres applications. Consultez la spécification OData pour des détails sur EntityKey."
+                  expressionType="Notify"
+                  name="IDColumnName">_ID</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataStreamingDestinationAdapter</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu]"
+                  hasSideEffects="true"
+                  name="Entrée du composant Destination de diffusion des données en continu">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[start_time]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="start_time"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[start_time]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[stop_time]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="stop_time"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[stop_time]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[duration]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="duration"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[duration]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[input_octets]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="input_octets"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[input_octets]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[output_octets]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="output_octets"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[output_octets]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[os]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="os"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[os]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[browser]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="browser"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[browser]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[device]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="device"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[device]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[langue]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="langue"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[langue]" />
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu].Columns[site]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="site"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[site]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT - Publication de données\Unir tout"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="Unir tout"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[start_time]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="start_time"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[start_time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[start_time]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[stop_time]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="stop_time"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[stop_time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[stop_time]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[duration]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="duration"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[duration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[duration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[input_octets]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="input_octets"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[input_octets]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[input_octets]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[output_octets]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="output_octets"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[output_octets]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[output_octets]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[os]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="os"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[os]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[os]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[browser]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="browser"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[browser]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[browser]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[device]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="device"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[device]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[device]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[langue]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="langue"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[langue]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[langue]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1].Columns[site]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="site"
+                      lineageId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output].Columns[site]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[site]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - Publication de données\Unir tout.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - Publication de données\Unir tout.Inputs[Entrée Union All 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[start_time]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[start_time]"
+                      name="start_time" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[stop_time]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[stop_time]"
+                      name="stop_time" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[duration]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[duration]"
+                      name="duration" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[input_octets]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[input_octets]"
+                      name="input_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[output_octets]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[output_octets]"
+                      name="output_octets" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[os]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[os]"
+                      name="os" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[browser]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[browser]"
+                      name="browser" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[device]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[device]"
+                      name="device" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[langue]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[langue]"
+                      name="langue" />
+                    <outputColumn
+                      refId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[site]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1].Columns[site]"
+                      name="site" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Publication de données.Paths[Output]"
+              endId="Package\DFT - Publication de données\Unir tout.Inputs[Unir tout entrée 1]"
+              name="Output"
+              startId="Package\DFT - Publication de données\Azure Data Lake Store Source.Outputs[Output]" />
+            <path
+              refId="Package\DFT - Publication de données.Paths[Output1]"
+              endId="Package\DFT - Publication de données\Unir tout.Inputs[Entrée Union All 1]"
+              name="Output"
+              startId="Package\DFT - Publication de données\BLOB_SRC - Hotspot.Outputs[Output]" />
+            <path
+              refId="Package\DFT - Publication de données.Paths[Unir tout sortie 1]"
+              endId="Package\DFT - Publication de données\Destination de diffusion des données en continu.Inputs[Entrée du composant Destination de diffusion des données en continu]"
+              name="Unir tout sortie 1"
+              startId="Package\DFT - Publication de données\Unir tout.Outputs[Unir tout sortie 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\DFT - Publication de données"
+          TopLeft="173,152" />
+        <AnnotationLayout
+          Text="Exemple d'utilisation du composant de flux de données&#xD;&#xA;Ne pas oublier d'utiliser l'assistant de publication de données"
+          ParentId="Package"
+          Size="324,60"
+          Id="156b2dc6-67b2-4084-820e-f821d6f97633"
+          TopLeft="116,61">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Publication de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="120,42"
+          Id="Package\DFT - Publication de données\Unir tout"
+          TopLeft="314.5,107.5" />
+        <NodeLayout
+          Size="305,42"
+          Id="Package\DFT - Publication de données\Destination de diffusion des données en continu"
+          TopLeft="222,209.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT - Publication de données\Azure Data Lake Store Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT - Publication de données\BLOB_SRC - Hotspot"
+          TopLeft="286.5,5.5" />
+        <EdgeLayout
+          Id="Package\DFT - Publication de données.Paths[Unir tout sortie 1]"
+          TopLeft="374.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Publication de données.Paths[Output1]"
+          TopLeft="374.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="18.6666666666667,60"
+              Start="0,0"
+              End="18.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894737"
+                    Point2="0,35.5263157894737"
+                    Point3="4,35.5263157894737" />
+                  <mssgle:LineSegment
+                    End="14.6666666666667,35.5263157894737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6666666666667,35.5263157894737"
+                    Point2="18.6666666666667,35.5263157894737"
+                    Point3="18.6666666666667,39.5263157894737" />
+                  <mssgle:LineSegment
+                    End="18.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Publication de données.Paths[Output]"
+          TopLeft="115.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="240.333333333333,60"
+              Start="0,0"
+              End="240.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894737"
+                    Point2="0,35.5263157894737"
+                    Point3="4,35.5263157894737" />
+                  <mssgle:LineSegment
+                    End="236.333333333333,35.5263157894737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="236.333333333333,35.5263157894737"
+                    Point2="240.333333333333,35.5263157894737"
+                    Point3="240.333333333333,39.5263157894737" />
+                  <mssgle:LineSegment
+                    End="240.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

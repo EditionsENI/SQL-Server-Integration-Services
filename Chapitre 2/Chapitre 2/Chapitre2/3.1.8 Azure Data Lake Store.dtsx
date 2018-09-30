@@ -1,0 +1,77 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2018 11:02:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{19BD05F6-B7FF-4905-A265-F892663DB142}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 1 8 Azure Data Lake Store"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{C02BFCC2-2FB9-4F1E-9E3A-5FA6CB6B1CDC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Azure Data Lake Store File System Task"
+      DTS:CreationName="AdlsTask"
+      DTS:Description="Azure Data Lake Store File System Task"
+      DTS:DTSID="{D42AB4DC-ED31-4C59-AC05-45FCD135D489}"
+      DTS:ExecutableType="AdlsTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure Data Lake Store File System Task"
+      DTS:TaskContact="Azure Data Lake Store File System Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <AdlsTask
+          Operation="CopyToADLS"
+          AzureDataLakeConnectionId="{6ED6FC6F-A83B-4EE6-861C-19AA0FA02868}"
+          AzureDataLakeDirectory="/Hotspot"
+          LocalDirectory="C:\TestSqlDW"
+          SearchRecursively="False"
+          FileNamePattern="*.csv" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="266,42"
+          Id="Package\Azure Data Lake Store File System Task"
+          TopLeft="120,206" />
+        <AnnotationLayout
+          Text="Exemple d'utilisation de la tâche de fichier Azure Data Lake Store&#xD;&#xA;Chaînes de connexions et chemins sont à mettre à jour."
+          ParentId="Package"
+          Size="345,51"
+          Id="354636ee-dc71-4bad-9426-d0aa51024b6c"
+          TopLeft="73,118">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

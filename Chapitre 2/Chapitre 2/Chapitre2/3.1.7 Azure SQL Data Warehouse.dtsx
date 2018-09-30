@@ -1,0 +1,113 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2018 11:02:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{A6A3A919-CE1D-4BBE-8D0D-FDFA31F6C0BD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 1 7 Azure SQL Data Warehouse"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{BAEB44A2-7F55-4BF3-9C28-358C0D2B6DF4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[livresqldw.database.windows.net.livresqldw.chsauget]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{7982955D-205A-4A8E-AE22-72341670D93E}"
+      DTS:ObjectName="livresqldw.database.windows.net.livresqldw.chsauget">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=livresqldw.database.windows.net;User ID=chsauget;Initial Catalog=livresqldw;Persist Security Info=True;Application Name=&quot;SSIS-2 1 7 Azure SQL Data Warehouse-{7982955D-205A-4A8E-AE22-72341670D93E}livresqldw.database.windows.net.livresqldw.chsauget&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Azure SQL DW Upload Task"
+      DTS:CreationName="DwUploadTask"
+      DTS:Description="Azure SQL DW Upload Task"
+      DTS:DTSID="{5FB3FDFD-1582-4E55-AF26-1398AD1BDE6F}"
+      DTS:ExecutableType="DwUploadTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure SQL DW Upload Task"
+      DTS:TaskContact="Azure SQL DW Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CopyToDwTask
+          SourceType="FileSystem"
+          LocalDirectory="C:\TestSqlDW"
+          Recursively="False"
+          FileName="*.csv"
+          RowDelimiterType="CRLF"
+          ColumnDelimiter=";"
+          IsFirstRowHeader="True"
+          BlobContainer="sqldw"
+          RetainFiles="False"
+          CompressionType="GZIP"
+          CompressionLevel="Fastest"
+          BlobConnectionId="{A42C8D74-6FAD-435C-BE02-7763401DCB52}"
+          DwConnectionId="{7982955D-205A-4A8E-AE22-72341670D93E}"
+          TableName="&quot;hotspot&quot;"
+          TableDistribution="ROUND_ROBIN"
+          OperationType="Create"
+          SourceColumnNames="start_time&#xA;stop_time&#xA;duration&#xA;input_octets&#xA;output_octets&#xA;os&#xA;browser&#xA;device&#xA;langue&#xA;site&#xA;"
+          SourceColumnTypes="NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;NVarChar&#xA;"
+          SourceColumnWidths="30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;300&#xA;300&#xA;300&#xA;300&#xA;500&#xA;"
+          SourceColumnPrecisions="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          SourceColumnScales="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          DestinationColumnNames="start_time&#xA;stop_time&#xA;duration&#xA;input_octets&#xA;output_octets&#xA;os&#xA;browser&#xA;device&#xA;langue&#xA;site&#xA;"
+          DestinationColumnTypes="VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;VarChar&#xA;"
+          DestinationColumnWidths="30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;30&#xA;"
+          DestinationColumnPrecisions="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          DestinationColumnScales="0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;0&#xA;"
+          MappedDestinationColumnIndex="0&#xA;1&#xA;2&#xA;3&#xA;4&#xA;5&#xA;6&#xA;7&#xA;8&#xA;9&#xA;"
+          SQL="CREATE DATABASE SCOPED CREDENTIAL &quot;&lt;credential_name&gt;&quot;&#xA;WITH IDENTITY = '&lt;blob_account_name&gt;',&#xA;SECRET = '&lt;blob_account_key&gt;';&#xA;CREATE EXTERNAL DATA SOURCE &quot;&lt;external_data_source_name&gt;&quot;&#xA;WITH (&#xA;    TYPE = HADOOP,&#xA;    LOCATION = 'wasbs://&lt;blob_container&gt;@&lt;blob_account_name&gt;.blob.&lt;blob_endpoint_suffix&gt;',&#xA;    CREDENTIAL = &quot;&lt;credential_name&gt;&quot;&#xA;);&#xA;CREATE EXTERNAL FILE FORMAT &quot;&lt;external_file_format_name&gt;&quot;&#xA;WITH (&#xA;    FORMAT_TYPE = DELIMITEDTEXT,&#xA;    FORMAT_OPTIONS (&#xA;        FIELD_TERMINATOR = '&lt;column_delimiter&gt;'&#xA;    ),&#xA;    DATA_COMPRESSION = '&lt;data_compression&gt;'&#xA;);&#xA;CREATE EXTERNAL TABLE &quot;&lt;external_table_name&gt;&quot; (&#xA;    &quot;start_time&quot; datetime,&#xA;    &quot;stop_time&quot; datetime,&#xA;    &quot;duration&quot; varchar(30),&#xA;    &quot;input_octets&quot; varchar(30),&#xA;    &quot;output_octets&quot; varchar(30),&#xA;    &quot;os&quot; varchar(500),&#xA;    &quot;browser&quot; varchar(500),&#xA;    &quot;device&quot; varchar(500),&#xA;    &quot;langue&quot; varchar(500),&#xA;    &quot;site&quot; varchar(500)&#xA;) WITH (&#xA;    LOCATION = '&lt;blob_directory&gt;',&#xA;    DATA_SOURCE = &quot;&lt;external_data_source_name&gt;&quot;,&#xA;    FILE_FORMAT = &quot;&lt;external_file_format_name&gt;&quot;&#xA;);&#xA;CREATE TABLE &quot;hotspot&quot; (&#xA;    &quot;start_time&quot;,&#xA;    &quot;stop_time&quot;,&#xA;    &quot;duration&quot;,&#xA;    &quot;input_octets&quot;,&#xA;    &quot;output_octets&quot;,&#xA;    &quot;os&quot;,&#xA;    &quot;browser&quot;,&#xA;    &quot;device&quot;,&#xA;    &quot;langue&quot;,&#xA;    &quot;site&quot;&#xA;) WITH (&#xA;    DISTRIBUTION = ROUND_ROBIN&#xA;) AS&#xA;SELECT&#xA;    &quot;start_time&quot;,&#xA;    &quot;stop_time&quot;,&#xA;    &quot;duration&quot;,&#xA;    &quot;input_octets&quot;,&#xA;    &quot;output_octets&quot;,&#xA;    &quot;os&quot;,&#xA;    &quot;browser&quot;,&#xA;    &quot;device&quot;,&#xA;    &quot;langue&quot;,&#xA;    &quot;site&quot;&#xA;FROM &quot;&lt;external_table_name&gt;&quot;;&#xA;DROP EXTERNAL TABLE &quot;&lt;external_table_name&gt;&quot;;&#xA;DROP EXTERNAL FILE FORMAT &quot;&lt;external_file_format_name&gt;&quot;;&#xA;DROP EXTERNAL DATA SOURCE &quot;&lt;external_data_source_name&gt;&quot;;&#xA;DROP DATABASE SCOPED CREDENTIAL &quot;&lt;credential_name&gt;&quot;;"
+          SQLTimeout="0"
+          UnlockSQL="False" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Azure SQL DW Upload Task"
+          TopLeft="124,180" />
+        <AnnotationLayout
+          Text="Exemple d'utilisation de la tâche de chargement SQLDW&#xD;&#xA;Chaînes de connexions et chemins sont à mettre à jour."
+          ParentId="Package"
+          Size="302,60"
+          Id="fb08614d-7dda-4b07-bc79-5270e3c4e0ae"
+          TopLeft="74,67">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

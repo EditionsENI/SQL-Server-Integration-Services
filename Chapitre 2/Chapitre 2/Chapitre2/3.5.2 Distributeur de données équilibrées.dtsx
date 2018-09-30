@@ -1,0 +1,1842 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2018 8:23:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{FE1E8C97-85AA-45BA-AC10-263A8338E865}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 5 2 Distributeur de données équilibrées"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{F9A83D8B-185A-47CF-8F5E-A8DC89C993DA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Balanced data distributor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{D093A6B5-8320-4B69-9789-F175B95F6E02}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Balanced data distributor"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées"
+              componentClassID="Microsoft.BDD"
+              contactInfo="Distributeur de données équilibrées;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Évalue et dirige les lignes d'un jeu de données vers plusieurs destinations."
+              name="Distributeur de données équilibrées">
+              <inputs>
+                <input
+                  refId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Inputs[Entrée du distributeur de données équilibrées]"
+                  description="Entrée vers la transformation du serveur  de distribution de données équilibré"
+                  name="Entrée du distributeur de données équilibrées">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 1]"
+                  deleteOutputOnPathDetached="true"
+                  exclusionGroup="1"
+                  name="Sortie du distributeur de données équilibrées 1"
+                  synchronousInputId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Inputs[Entrée du distributeur de données équilibrées]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 2]"
+                  deleteOutputOnPathDetached="true"
+                  exclusionGroup="1"
+                  name="Sortie du distributeur de données équilibrées 2"
+                  synchronousInputId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Inputs[Entrée du distributeur de données équilibrées]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 3]"
+                  deleteOutputOnPathDetached="true"
+                  exclusionGroup="1"
+                  name="Sortie du distributeur de données équilibrées 3"
+                  synchronousInputId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Inputs[Entrée du distributeur de données équilibrées]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 4]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  exclusionGroup="1"
+                  name="Sortie du distributeur de données équilibrées 4"
+                  synchronousInputId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Inputs[Entrée du distributeur de données équilibrées]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - Thread 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact].[Sale]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[City Key]"
+                      cachedDataType="i4"
+                      cachedName="City Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[City Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[City Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Bill To Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Bill To Customer Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Bill To Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Stock Item Key]"
+                      cachedDataType="i4"
+                      cachedName="Stock Item Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Stock Item Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Stock Item Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Invoice Date Key]"
+                      cachedDataType="dbDate"
+                      cachedName="Invoice Date Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Invoice Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Invoice Date Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Delivery Date Key]"
+                      cachedDataType="dbDate"
+                      cachedName="Delivery Date Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Delivery Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Delivery Date Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Salesperson Key]"
+                      cachedDataType="i4"
+                      cachedName="Salesperson Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Salesperson Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Salesperson Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[WWI Invoice ID]"
+                      cachedDataType="i4"
+                      cachedName="WWI Invoice ID"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Invoice ID]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[WWI Invoice ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Description]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Package]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Package"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Package]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Package]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantity]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Unit Price]"
+                      cachedDataType="numeric"
+                      cachedName="Unit Price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Unit Price]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Unit Price]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Tax Rate]"
+                      cachedDataType="numeric"
+                      cachedName="Tax Rate"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Rate]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Rate]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Total Excluding Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Total Excluding Tax"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Excluding Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Excluding Tax]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Tax Amount]"
+                      cachedDataType="numeric"
+                      cachedName="Tax Amount"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Amount]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Amount]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Profit]"
+                      cachedDataType="numeric"
+                      cachedName="Profit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Profit]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Profit]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Total Including Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Total Including Tax"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Including Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Including Tax]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Total Dry Items]"
+                      cachedDataType="i4"
+                      cachedName="Total Dry Items"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Dry Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Dry Items]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Total Chiller Items]"
+                      cachedDataType="i4"
+                      cachedName="Total Chiller Items"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Chiller Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Chiller Items]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].Columns[Lineage Key]"
+                      cachedDataType="i4"
+                      cachedName="Lineage Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Lineage Key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Sale Key]"
+                      dataType="i8"
+                      name="Sale Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[City Key]"
+                      dataType="i4"
+                      name="City Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer Key]"
+                      dataType="i4"
+                      name="Bill To Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Stock Item Key]"
+                      dataType="i4"
+                      name="Stock Item Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Invoice Date Key]"
+                      dataType="dbDate"
+                      name="Invoice Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Delivery Date Key]"
+                      dataType="dbDate"
+                      name="Delivery Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Salesperson Key]"
+                      dataType="i4"
+                      name="Salesperson Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Invoice ID]"
+                      dataType="i4"
+                      name="WWI Invoice ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Package]"
+                      dataType="wstr"
+                      length="50"
+                      name="Package" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Rate]"
+                      dataType="numeric"
+                      name="Tax Rate"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Excluding Tax]"
+                      dataType="numeric"
+                      name="Total Excluding Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Amount]"
+                      dataType="numeric"
+                      name="Tax Amount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Including Tax]"
+                      dataType="numeric"
+                      name="Total Including Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Dry Items]"
+                      dataType="i4"
+                      name="Total Dry Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Chiller Items]"
+                      dataType="i4"
+                      name="Total Chiller Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - Thread 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact].[Sale]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[City Key]"
+                      cachedDataType="i4"
+                      cachedName="City Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[City Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[City Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Bill To Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Bill To Customer Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Bill To Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Stock Item Key]"
+                      cachedDataType="i4"
+                      cachedName="Stock Item Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Stock Item Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Stock Item Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Invoice Date Key]"
+                      cachedDataType="dbDate"
+                      cachedName="Invoice Date Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Invoice Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Invoice Date Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Delivery Date Key]"
+                      cachedDataType="dbDate"
+                      cachedName="Delivery Date Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Delivery Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Delivery Date Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Salesperson Key]"
+                      cachedDataType="i4"
+                      cachedName="Salesperson Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Salesperson Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Salesperson Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[WWI Invoice ID]"
+                      cachedDataType="i4"
+                      cachedName="WWI Invoice ID"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Invoice ID]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[WWI Invoice ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Description]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Package]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Package"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Package]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Package]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantity]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Unit Price]"
+                      cachedDataType="numeric"
+                      cachedName="Unit Price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Unit Price]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Unit Price]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Tax Rate]"
+                      cachedDataType="numeric"
+                      cachedName="Tax Rate"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Rate]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Rate]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Total Excluding Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Total Excluding Tax"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Excluding Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Excluding Tax]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Tax Amount]"
+                      cachedDataType="numeric"
+                      cachedName="Tax Amount"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Amount]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Amount]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Profit]"
+                      cachedDataType="numeric"
+                      cachedName="Profit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Profit]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Profit]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Total Including Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Total Including Tax"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Including Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Including Tax]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Total Dry Items]"
+                      cachedDataType="i4"
+                      cachedName="Total Dry Items"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Dry Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Dry Items]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Total Chiller Items]"
+                      cachedDataType="i4"
+                      cachedName="Total Chiller Items"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Chiller Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Chiller Items]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].Columns[Lineage Key]"
+                      cachedDataType="i4"
+                      cachedName="Lineage Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Lineage Key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Sale Key]"
+                      dataType="i8"
+                      name="Sale Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[City Key]"
+                      dataType="i4"
+                      name="City Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer Key]"
+                      dataType="i4"
+                      name="Bill To Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Stock Item Key]"
+                      dataType="i4"
+                      name="Stock Item Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Invoice Date Key]"
+                      dataType="dbDate"
+                      name="Invoice Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Delivery Date Key]"
+                      dataType="dbDate"
+                      name="Delivery Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Salesperson Key]"
+                      dataType="i4"
+                      name="Salesperson Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Invoice ID]"
+                      dataType="i4"
+                      name="WWI Invoice ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Package]"
+                      dataType="wstr"
+                      length="50"
+                      name="Package" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Rate]"
+                      dataType="numeric"
+                      name="Tax Rate"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Excluding Tax]"
+                      dataType="numeric"
+                      name="Total Excluding Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Amount]"
+                      dataType="numeric"
+                      name="Tax Amount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Including Tax]"
+                      dataType="numeric"
+                      name="Total Including Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Dry Items]"
+                      dataType="i4"
+                      name="Total Dry Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Chiller Items]"
+                      dataType="i4"
+                      name="Total Chiller Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - Thread 3"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact].[Sale]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[City Key]"
+                      cachedDataType="i4"
+                      cachedName="City Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[City Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[City Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Bill To Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Bill To Customer Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Bill To Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Stock Item Key]"
+                      cachedDataType="i4"
+                      cachedName="Stock Item Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Stock Item Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Stock Item Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Invoice Date Key]"
+                      cachedDataType="dbDate"
+                      cachedName="Invoice Date Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Invoice Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Invoice Date Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Delivery Date Key]"
+                      cachedDataType="dbDate"
+                      cachedName="Delivery Date Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Delivery Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Delivery Date Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Salesperson Key]"
+                      cachedDataType="i4"
+                      cachedName="Salesperson Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Salesperson Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Salesperson Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[WWI Invoice ID]"
+                      cachedDataType="i4"
+                      cachedName="WWI Invoice ID"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Invoice ID]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[WWI Invoice ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Description]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Package]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Package"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Package]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Package]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantity]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Unit Price]"
+                      cachedDataType="numeric"
+                      cachedName="Unit Price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Unit Price]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Unit Price]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Tax Rate]"
+                      cachedDataType="numeric"
+                      cachedName="Tax Rate"
+                      cachedPrecision="18"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Rate]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Rate]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Total Excluding Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Total Excluding Tax"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Excluding Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Excluding Tax]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Tax Amount]"
+                      cachedDataType="numeric"
+                      cachedName="Tax Amount"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Amount]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Amount]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Profit]"
+                      cachedDataType="numeric"
+                      cachedName="Profit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Profit]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Profit]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Total Including Tax]"
+                      cachedDataType="numeric"
+                      cachedName="Total Including Tax"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Including Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Including Tax]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Total Dry Items]"
+                      cachedDataType="i4"
+                      cachedName="Total Dry Items"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Dry Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Dry Items]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Total Chiller Items]"
+                      cachedDataType="i4"
+                      cachedName="Total Chiller Items"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Chiller Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Chiller Items]" />
+                    <inputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].Columns[Lineage Key]"
+                      cachedDataType="i4"
+                      cachedName="Lineage Key"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Lineage Key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Sale Key]"
+                      dataType="i8"
+                      name="Sale Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[City Key]"
+                      dataType="i4"
+                      name="City Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer Key]"
+                      dataType="i4"
+                      name="Bill To Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Stock Item Key]"
+                      dataType="i4"
+                      name="Stock Item Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Invoice Date Key]"
+                      dataType="dbDate"
+                      name="Invoice Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Delivery Date Key]"
+                      dataType="dbDate"
+                      name="Delivery Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Salesperson Key]"
+                      dataType="i4"
+                      name="Salesperson Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Invoice ID]"
+                      dataType="i4"
+                      name="WWI Invoice ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Package]"
+                      dataType="wstr"
+                      length="50"
+                      name="Package" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Rate]"
+                      dataType="numeric"
+                      name="Tax Rate"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Excluding Tax]"
+                      dataType="numeric"
+                      name="Total Excluding Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Tax Amount]"
+                      dataType="numeric"
+                      name="Tax Amount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Including Tax]"
+                      dataType="numeric"
+                      name="Total Including Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Dry Items]"
+                      dataType="i4"
+                      name="Total Dry Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Chiller Items]"
+                      dataType="i4"
+                      name="Total Chiller Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - Ventes"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Fact].[Sale]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW1]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Sale Key]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Sale Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Sale Key]"
+                      name="Sale Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[City Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[City Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[City Key]"
+                      name="City Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Customer Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Customer Key]"
+                      name="Customer Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Bill To Customer Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Bill To Customer Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Bill To Customer Key]"
+                      name="Bill To Customer Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Stock Item Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Stock Item Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Stock Item Key]"
+                      name="Stock Item Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Invoice Date Key]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Invoice Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Invoice Date Key]"
+                      name="Invoice Date Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Delivery Date Key]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Delivery Date Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Delivery Date Key]"
+                      name="Delivery Date Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Salesperson Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Salesperson Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Salesperson Key]"
+                      name="Salesperson Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[WWI Invoice ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[WWI Invoice ID]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[WWI Invoice ID]"
+                      name="WWI Invoice ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Description]"
+                      length="100"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Package]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Package]"
+                      length="50"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Package]"
+                      name="Package"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Quantity]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Unit Price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Unit Price]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Unit Price]"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Rate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Tax Rate]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Rate]"
+                      name="Tax Rate"
+                      precision="18"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Excluding Tax]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Excluding Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Excluding Tax]"
+                      name="Total Excluding Tax"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Tax Amount]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Tax Amount]"
+                      name="Tax Amount"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Profit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Profit]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Profit]"
+                      name="Profit"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Including Tax]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Including Tax]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Including Tax]"
+                      name="Total Including Tax"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Dry Items]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Dry Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Dry Items]"
+                      name="Total Dry Items"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Chiller Items]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Chiller Items]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Total Chiller Items]"
+                      name="Total Chiller Items"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Lineage Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].Columns[Lineage Key]"
+                      name="Lineage Key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Sale Key]"
+                      dataType="i8"
+                      name="Sale Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[City Key]"
+                      dataType="i4"
+                      name="City Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Bill To Customer Key]"
+                      dataType="i4"
+                      name="Bill To Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Stock Item Key]"
+                      dataType="i4"
+                      name="Stock Item Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Invoice Date Key]"
+                      dataType="dbDate"
+                      name="Invoice Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Delivery Date Key]"
+                      dataType="dbDate"
+                      name="Delivery Date Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Salesperson Key]"
+                      dataType="i4"
+                      name="Salesperson Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[WWI Invoice ID]"
+                      dataType="i4"
+                      name="WWI Invoice ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Package]"
+                      dataType="wstr"
+                      length="50"
+                      name="Package" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Tax Rate]"
+                      dataType="numeric"
+                      name="Tax Rate"
+                      precision="18"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Excluding Tax]"
+                      dataType="numeric"
+                      name="Total Excluding Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Tax Amount]"
+                      dataType="numeric"
+                      name="Tax Amount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Including Tax]"
+                      dataType="numeric"
+                      name="Total Including Tax"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Dry Items]"
+                      dataType="i4"
+                      name="Total Dry Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Total Chiller Items]"
+                      dataType="i4"
+                      name="Total Chiller Items" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Sale Key]"
+                      dataType="i8"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Sale Key]"
+                      name="Sale Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[City Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[City Key]"
+                      name="City Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Customer Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Customer Key]"
+                      name="Customer Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Bill To Customer Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Bill To Customer Key]"
+                      name="Bill To Customer Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Stock Item Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Stock Item Key]"
+                      name="Stock Item Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Invoice Date Key]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Invoice Date Key]"
+                      name="Invoice Date Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Delivery Date Key]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Delivery Date Key]"
+                      name="Delivery Date Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Salesperson Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Salesperson Key]"
+                      name="Salesperson Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[WWI Invoice ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[WWI Invoice ID]"
+                      name="WWI Invoice ID" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Description]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Package]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Package]"
+                      name="Package" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Unit Price]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Unit Price]"
+                      name="Unit Price"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Tax Rate]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Tax Rate]"
+                      name="Tax Rate"
+                      precision="18"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Excluding Tax]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Excluding Tax]"
+                      name="Total Excluding Tax"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Tax Amount]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Tax Amount]"
+                      name="Tax Amount"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Profit]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Profit]"
+                      name="Profit"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Including Tax]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Including Tax]"
+                      name="Total Including Tax"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Dry Items]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Dry Items]"
+                      name="Total Dry Items" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Chiller Items]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Total Chiller Items]"
+                      name="Total Chiller Items" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Lineage Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[Lineage Key]"
+                      name="Lineage Key" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Balanced data distributor.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Inputs[Entrée du distributeur de données équilibrées]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT - Balanced data distributor\OLE_SRC - Ventes.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT - Balanced data distributor.Paths[Sortie du distributeur de données équilibrées 1]"
+              endId="Package\DFT - Balanced data distributor\OLE_DST - Thread 1.Inputs[Entrée de destination OLE DB]"
+              name="Sortie du distributeur de données équilibrées 1"
+              startId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 1]" />
+            <path
+              refId="Package\DFT - Balanced data distributor.Paths[Sortie du distributeur de données équilibrées 2]"
+              endId="Package\DFT - Balanced data distributor\OLE_DST - Thread 2.Inputs[Entrée de destination OLE DB]"
+              name="Sortie du distributeur de données équilibrées 2"
+              startId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 2]" />
+            <path
+              refId="Package\DFT - Balanced data distributor.Paths[Sortie du distributeur de données équilibrées 3]"
+              endId="Package\DFT - Balanced data distributor\OLE_DST - Thread 3.Inputs[Entrée de destination OLE DB]"
+              name="Sortie du distributeur de données équilibrées 3"
+              startId="Package\DFT - Balanced data distributor\Distributeur de données équilibrées.Outputs[Sortie du distributeur de données équilibrées 3]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="226,42"
+          Id="Package\DFT - Balanced data distributor"
+          TopLeft="160,113" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Balanced data distributor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT - Balanced data distributor\OLE_DST - Thread 2"
+          TopLeft="301.5,263.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT - Balanced data distributor\OLE_SRC - Ventes"
+          TopLeft="303,5.49999999999989" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT - Balanced data distributor\OLE_DST - Thread 1"
+          TopLeft="0.500000000000057,249.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT - Balanced data distributor\OLE_DST - Thread 3"
+          TopLeft="658.5,258.5" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\DFT - Balanced data distributor\Distributeur de données équilibrées"
+          TopLeft="262.5,107.5" />
+        <EdgeLayout
+          Id="Package\DFT - Balanced data distributor.Paths[Sortie du distributeur de données équilibrées 3]"
+          TopLeft="445,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="301.5,109"
+              Start="0,0"
+              End="301.5,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.112600536193" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.112600536193"
+                    Point2="0,37.112600536193"
+                    Point3="4,37.112600536193" />
+                  <mssgle:LineSegment
+                    End="297.5,37.112600536193" />
+                  <mssgle:CubicBezierSegment
+                    Point1="297.5,37.112600536193"
+                    Point2="301.5,37.112600536193"
+                    Point3="301.5,41.112600536193" />
+                  <mssgle:LineSegment
+                    End="301.5,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="46.98169921875,42.112600536193,207.5366015625,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Balanced data distributor.Paths[Sortie du distributeur de données équilibrées 2]"
+          TopLeft="387.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,114"
+              Start="0,0"
+              End="0,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-103.83177734375,47.15234375,207.6635546875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Balanced data distributor.Paths[Sortie du distributeur de données équilibrées 1]"
+          TopLeft="326,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-237.5,100"
+              Start="0,0"
+              End="-237.5,92.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.0482573726542" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.0482573726542"
+                    Point2="0,34.0482573726542"
+                    Point3="-4,34.0482573726542" />
+                  <mssgle:LineSegment
+                    End="-233.5,34.0482573726542" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-233.5,34.0482573726542"
+                    Point2="-237.5,34.0482573726542"
+                    Point3="-237.5,38.0482573726542" />
+                  <mssgle:LineSegment
+                    End="-237.5,92.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-222.39623046875,39.0482573726542,207.2924609375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Balanced data distributor.Paths[Sortie de source OLE DB]"
+          TopLeft="385.5,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Balanced data distributor\OLE_DST - Thread 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Balanced data distributor\OLE_DST - Thread 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Balanced data distributor\OLE_DST - Thread 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Balanced data distributor\OLE_SRC - Ventes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

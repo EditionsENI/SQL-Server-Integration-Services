@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/4/2018 10:34:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{048C8192-08B2-474C-B8B6-6C4A22634AE4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="6 4 1 Upsert"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{3AE39E88-591D-4E6F-ABD3-879489386993}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Upsert"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B078C203-915F-43FE-8B32-07DDB359BD13}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Upsert"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Upsert\LKP - Change"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP - Change"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Dimension].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Dimension].[Customer]) [refTable]
+where [refTable].[Customer Key] = ? and [refTable].[WWI Customer ID] = ? and [refTable].[Customer] = ? and [refTable].[Bill To Customer] = ? and [refTable].[Category] = ? and [refTable].[Buying Group] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Customer Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WWI Customer ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Customer" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Bill To Customer" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Buying Group" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Primary Contact" dataType="DT_BYTES" length="161" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Postal Code" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Valid From" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Valid To" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Lineage Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]};#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[WWI Customer ID]};#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer]};#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Bill To Customer]};#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Category]};#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Buying Group]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Upsert\LKP - Change.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Customer Key</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche].Columns[WWI Customer ID]"
+                      cachedDataType="i4"
+                      cachedName="WWI Customer ID"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[WWI Customer ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">WWI Customer ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Customer"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Customer</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche].Columns[Bill To Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Bill To Customer"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Bill To Customer]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Bill To Customer</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Category]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Category</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche].Columns[Buying Group]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Buying Group"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Buying Group]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Buying Group</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Upsert\LKP - Exists"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP - Exists"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Dimension].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Dimension].[Customer]) [refTable]
+where [refTable].[Customer Key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Customer Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WWI Customer ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Customer" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Bill To Customer" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Buying Group" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Primary Contact" dataType="DT_BYTES" length="161" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Postal Code" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Valid From" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Valid To" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Lineage Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Upsert\LKP - Exists.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Upsert\LKP - Exists.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\LKP - Exists.Inputs[Entrée de recherche].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Customer Key</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Upsert\LKP - Exists.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Upsert\LKP - Exists.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Upsert\LKP - Exists.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Upsert\OLE_CMD - Update"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="OLE_CMD - Update"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Upsert\OLE_CMD - Update.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Upsert\OLE_CMD - Update.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Upsert\OLE_CMD - Update.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\DFT - Upsert\OLE_CMD - Update.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Upsert\OLE_CMD - Update.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\DFT - Upsert\OLE_CMD - Update.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_CMD - Update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_CMD - Update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_CMD - Update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_CMD - Update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Upsert\OLE_DST - Nouveau Client"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - Nouveau Client"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Dimension].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[WWI Customer ID]"
+                      cachedDataType="i4"
+                      cachedName="WWI Customer ID"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Customer ID]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[WWI Customer ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Customer"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Bill To Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Bill To Customer"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Bill To Customer]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Category]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Buying Group]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Buying Group"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Buying Group]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Buying Group]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Primary Contact]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Primary Contact"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Primary Contact]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Primary Contact]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Postal Code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Postal Code"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Postal Code]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Postal Code]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Valid From]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="Valid From"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Valid From]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Valid From]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Valid To]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="Valid To"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Valid To]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Valid To]" />
+                    <inputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].Columns[Lineage Key]"
+                      cachedDataType="i4"
+                      cachedName="Lineage Key"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Lineage Key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[WWI Customer ID]"
+                      dataType="i4"
+                      name="WWI Customer ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Bill To Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Bill To Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Buying Group]"
+                      dataType="wstr"
+                      length="50"
+                      name="Buying Group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Primary Contact]"
+                      dataType="wstr"
+                      length="50"
+                      name="Primary Contact" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Postal Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Postal Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      name="Valid From"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      name="Valid To"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Upsert\OLE_SRC - Client"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - Client"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Dimension].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Upsert\OLE_SRC - Client.Connections[OleDbConnection]"
+                  connectionManagerID="{E84250B0-4CD7-42C9-B30B-64C1C472C25C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WideWorldImportersDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer Key]"
+                      name="Customer Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[WWI Customer ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[WWI Customer ID]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[WWI Customer ID]"
+                      name="WWI Customer ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Customer]"
+                      length="100"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Bill To Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Bill To Customer]"
+                      length="100"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Bill To Customer]"
+                      name="Bill To Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Category]"
+                      length="50"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Buying Group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Buying Group]"
+                      length="50"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Buying Group]"
+                      name="Buying Group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Primary Contact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Primary Contact]"
+                      length="50"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Primary Contact]"
+                      name="Primary Contact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Postal Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Postal Code]"
+                      length="10"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Postal Code]"
+                      name="Postal Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Valid From]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Valid From]"
+                      name="Valid From"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Valid To]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Valid To]"
+                      name="Valid To"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Lineage Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].Columns[Lineage Key]"
+                      name="Lineage Key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[WWI Customer ID]"
+                      dataType="i4"
+                      name="WWI Customer ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Bill To Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Bill To Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Buying Group]"
+                      dataType="wstr"
+                      length="50"
+                      name="Buying Group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Primary Contact]"
+                      dataType="wstr"
+                      length="50"
+                      name="Primary Contact" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Postal Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Postal Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      name="Valid From"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      name="Valid To"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Customer Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Customer Key]"
+                      name="Customer Key" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[WWI Customer ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[WWI Customer ID]"
+                      name="WWI Customer ID" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Bill To Customer]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Bill To Customer]"
+                      name="Bill To Customer" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Buying Group]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Buying Group]"
+                      name="Buying Group" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Primary Contact]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Primary Contact]"
+                      name="Primary Contact" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Postal Code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Postal Code]"
+                      name="Postal Code" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Valid From]"
+                      name="Valid From"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Valid To]"
+                      name="Valid To"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Lineage Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[Lineage Key]"
+                      name="Lineage Key" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Upsert.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\DFT - Upsert\LKP - Change.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DFT - Upsert.Paths[Sortie de recherche sans correspondance]"
+              endId="Package\DFT - Upsert\OLE_CMD - Update.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DFT - Upsert\LKP - Change.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DFT - Upsert.Paths[Sortie de recherche sans correspondance1]"
+              endId="Package\DFT - Upsert\OLE_DST - Nouveau Client.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DFT - Upsert\LKP - Exists.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DFT - Upsert.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT - Upsert\LKP - Exists.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT - Upsert\OLE_SRC - Client.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DFT - Upsert"
+          TopLeft="161,133" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Upsert">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DFT - Upsert\OLE_CMD - Update"
+          TopLeft="346,397" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DFT - Upsert\OLE_SRC - Client"
+          TopLeft="215,55" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\DFT - Upsert\LKP - Exists"
+          TopLeft="230,174" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\DFT - Upsert\OLE_DST - Nouveau Client"
+          TopLeft="28,314" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\DFT - Upsert\LKP - Change"
+          TopLeft="365,267" />
+        <EdgeLayout
+          Id="Package\DFT - Upsert.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="318,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,51"
+              Start="0,0"
+              End="118,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7610619469027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7610619469027"
+                    Point2="0,20.7610619469027"
+                    Point3="4,20.7610619469027" />
+                  <mssgle:LineSegment
+                    End="114,20.7610619469027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114,20.7610619469027"
+                    Point2="118,20.7610619469027"
+                    Point3="118,24.7610619469027" />
+                  <mssgle:LineSegment
+                    End="118,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.67701171875,25.7610619469027,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Upsert.Paths[Sortie de source OLE DB]"
+          TopLeft="296,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Upsert.Paths[Sortie de recherche sans correspondance1]"
+          TopLeft="276,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-145.5,98"
+              Start="0,0"
+              End="-145.5,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8938053097345" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.8938053097345"
+                    Point2="0,39.8938053097345"
+                    Point3="-4,39.8938053097345" />
+                  <mssgle:LineSegment
+                    End="-141.5,39.8938053097345" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-141.5,39.8938053097345"
+                    Point2="-145.5,39.8938053097345"
+                    Point3="-145.5,43.8938053097345" />
+                  <mssgle:LineSegment
+                    End="-145.5,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-164.25201171875,44.8938053097345,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Upsert.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="433.5,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88"
+              Start="0,0"
+              End="0,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.50201171875,34.4453125,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Upsert\OLE_SRC - Client">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Upsert\LKP - Exists">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Dimension].[Customer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Upsert\OLE_DST - Nouveau Client">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Upsert\LKP - Change">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Dimension].[Customer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

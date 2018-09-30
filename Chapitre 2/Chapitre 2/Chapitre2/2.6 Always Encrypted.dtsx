@@ -1,0 +1,1261 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2018 8:37:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LIVRE"
+  DTS:CreatorName="livre\scharly3"
+  DTS:DTSID="{8E951465-5632-4388-A25F-FA507C7D18E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="2 3 1 Always Encrypted"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{0783B4ED-5F1B-41D8-8103-F5E13546E1FF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache - Client en clair]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{B1E69571-AA56-4E21-AC99-B12639B446F3}"
+      DTS:ObjectName="Cache - Client en clair">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager>
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="3"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="Customer Key"
+              DTS:DTSID="{63FA233C-1AB6-44CB-8574-DEEE7AA96F0E}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="3"
+              DTS:ObjectName="WWI Customer ID"
+              DTS:DTSID="{EA186D31-6866-4F34-89D1-E093F91D9A72}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="100"
+              DTS:ObjectName="Customer"
+              DTS:DTSID="{0AD379F0-1DC1-4289-8497-BF09E126D098}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="100"
+              DTS:ObjectName="Bill To Customer"
+              DTS:DTSID="{D0E5E2BB-D91F-411E-9D6E-D5EADDE97217}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="50"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{452A4423-8714-4C91-B41B-480487804809}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="50"
+              DTS:ObjectName="Buying Group"
+              DTS:DTSID="{6618A00C-7638-44B8-B085-05B66A086429}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="50"
+              DTS:ObjectName="Primary Contact"
+              DTS:DTSID="{8C70D6D7-6805-4DD1-8428-9449EDBCD6DD}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="10"
+              DTS:ObjectName="Postal Code"
+              DTS:DTSID="{E493438D-F456-48ED-91F9-4CFB4AF1DACC}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="304"
+              DTS:Scale="7"
+              DTS:ObjectName="Valid From"
+              DTS:DTSID="{43B87EFA-59E7-4F44-B236-9A8808638A6B}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="304"
+              DTS:Scale="7"
+              DTS:ObjectName="Valid To"
+              DTS:DTSID="{C323A839-9D6C-40AE-A813-40F17AF9C89A}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="3"
+              DTS:ObjectName="Lineage Key"
+              DTS:DTSID="{DFF5EC07-890A-473B-9928-84E72FF0669C}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9436D480-4567-4E0D-B88A-9450F4D0955F}"
+      DTS:ObjectName="Gestionnaire de connexions de fichiers plats">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Packages\clients.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Key"
+              DTS:DTSID="{73B20E86-2951-4D8E-B577-3E2BF8381B8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="38"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Profit"
+              DTS:DTSID="{49E2079A-24E5-4B4F-AE10-1490D95C8CF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Primary Contact"
+              DTS:DTSID="{501364B1-46E4-4254-B99C-8F7371ADCB27}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WideWorldImportersDW .NET]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{CCA87E40-562A-46FC-A2DC-CFE095E0E59A}"
+      DTS:ObjectName="WideWorldImportersDW .NET">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=WideWorldImportersDW;Integrated Security=True;Column Encryption Setting=Enabled;Application Name=SSIS-1 6 Always Encrypted-{CCA87E40-562A-46FC-A2DC-CFE095E0E59A}LocalHost.WideWorldImportersDW;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - AlwaysEncrypted - Cache"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{78E2AAA8-CF03-42D1-8B3D-B69627135760}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - AlwaysEncrypted - Cache"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="ADO_SRC - DimCustomer - En clair"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Dimension"."Customer"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WideWorldImportersDW .NET]"
+                  connectionManagerRefId="Package.ConnectionManagers[WideWorldImportersDW .NET]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Customer Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Customer Key]"
+                      name="Customer Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[WWI Customer ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[WWI Customer ID]"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[WWI Customer ID]"
+                      name="WWI Customer ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Customer]"
+                      length="100"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Bill To Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Bill To Customer]"
+                      length="100"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Bill To Customer]"
+                      name="Bill To Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Category]"
+                      length="50"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Buying Group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Buying Group]"
+                      length="50"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Buying Group]"
+                      name="Buying Group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Primary Contact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Primary Contact]"
+                      length="50"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Primary Contact]"
+                      name="Primary Contact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Postal Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Postal Code]"
+                      length="10"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Postal Code]"
+                      name="Postal Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Valid From]"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Valid From]"
+                      name="Valid From"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Valid To]"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Valid To]"
+                      name="Valid To"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Lineage Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Lineage Key]"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Lineage Key]"
+                      name="Lineage Key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[WWI Customer ID]"
+                      dataType="i4"
+                      name="WWI Customer ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Bill To Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Bill To Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Buying Group]"
+                      dataType="wstr"
+                      length="50"
+                      name="Buying Group" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Primary Contact]"
+                      dataType="wstr"
+                      length="50"
+                      name="Primary Contact" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Postal Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Postal Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      name="Valid From"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      name="Valid To"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].ExternalColumns[Lineage Key]"
+                      dataType="i4"
+                      name="Lineage Key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Customer Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Customer Key]"
+                      name="Customer Key" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[WWI Customer ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[WWI Customer ID]"
+                      name="WWI Customer ID" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Bill To Customer]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Bill To Customer]"
+                      name="Bill To Customer" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Buying Group]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Buying Group]"
+                      name="Buying Group" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Primary Contact]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Primary Contact]"
+                      name="Primary Contact" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Postal Code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Postal Code]"
+                      name="Postal Code" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Valid From]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Valid From]"
+                      name="Valid From"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Valid To]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Valid To]"
+                      name="Valid To"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Lineage Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[Lineage Key]"
+                      name="Lineage Key" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Transformation du cache;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Écrit des données dans un cache (fichier .caw) avec le gestionnaire de connexions du cache. Réutilisez le cache entre plusieurs transformations de recherche afin de réduire la charge de la base de données. Partagez le cache pour réduire l'utilisation de mémoire. Remarque : les données mises en cache sont stockées en clair, ce qui n'est pas recommandé pour les données sensibles."
+              name="Transformation du cache"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache - Client en clair]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache - Client en clair]"
+                  description="Connexion utilisée pour accéder au cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache]"
+                  hasSideEffects="true"
+                  name="Entrée du cache">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Customer Key]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Customer Key</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[WWI Customer ID]"
+                      cachedDataType="i4"
+                      cachedName="WWI Customer ID"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[WWI Customer ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">WWI Customer ID</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Customer"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Customer]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Customer</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Bill To Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Bill To Customer"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Bill To Customer]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Bill To Customer</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Category]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Category</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Buying Group]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Buying Group"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Buying Group]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Buying Group</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Primary Contact]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Primary Contact"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Primary Contact]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Primary Contact</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Postal Code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Postal Code"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Postal Code]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Postal Code</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Valid From]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="Valid From"
+                      cachedScale="7"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Valid From]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Valid From</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Valid To]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="Valid To"
+                      cachedScale="7"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Valid To]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Valid To</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache].Columns[Lineage Key]"
+                      cachedDataType="i4"
+                      cachedName="Lineage Key"
+                      lineageId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET].Columns[Lineage Key]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Colonne du cache associée à la colonne d'entrée."
+                          name="CacheColumnName">Lineage Key</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Outputs[Sortie du cache]"
+                  name="Sortie du cache"
+                  synchronousInputId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - AlwaysEncrypted - Cache.Paths[Sortie de source ADO NET]"
+              endId="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache.Inputs[Entrée du cache]"
+              name="Sortie de source ADO NET"
+              startId="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Recherche"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{9BDD99D5-72AF-44CD-B969-1C14FAE3711E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Recherche"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Recherche\ADO_SRC - Ventes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="ADO_SRC - Ventes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Customer Key]
+      ,SUM([Profit]) AS [Profit]
+  FROM [Fact].[Sale]
+  GROUP BY [Customer Key]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Fact"."Sale"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Recherche\ADO_SRC - Ventes.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WideWorldImportersDW .NET]"
+                  connectionManagerRefId="Package.ConnectionManagers[WideWorldImportersDW .NET]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Customer Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Customer Key]"
+                      name="Customer Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Profit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].ExternalColumns[Profit]"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Profit]"
+                      name="Profit"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="38"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[Customer Key]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[Customer Key]"
+                      name="Customer Key" />
+                    <outputColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[Profit]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[Profit]"
+                      name="Profit"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Recherche\Destination de fichier plat"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destination de fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Destination de fichier plat"
+              localeId="1036"
+              name="Destination de fichier plat">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les données remplaceront ou seront ajoutées au fichier de destination."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le texte à enregistrer sur le fichier de destination avant d'enregistrer des données."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Recherche\Destination de fichier plat.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions de fichiers plats]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat]"
+                  hasSideEffects="true"
+                  name="Entrée de destination de fichier plat">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      externalMetadataColumnId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[Customer Key]"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Customer Key]" />
+                    <inputColumn
+                      refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[Profit]"
+                      cachedDataType="numeric"
+                      cachedName="Profit"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[Profit]"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Profit]" />
+                    <inputColumn
+                      refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].Columns[Primary Contact]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Primary Contact"
+                      externalMetadataColumnId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[Primary Contact]"
+                      lineageId="Package\DFT - Recherche\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Primary Contact]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[Customer Key]"
+                      dataType="i4"
+                      name="Customer Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat].ExternalColumns[Primary Contact]"
+                      dataType="wstr"
+                      length="50"
+                      name="Primary Contact" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DFT - Recherche\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from () [refTable]
+where [refTable].[Customer Key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Customer Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WWI Customer ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Customer" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Bill To Customer" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Buying Group" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Primary Contact" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Postal Code" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Valid From" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Valid To" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Lineage Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Customer Key]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Recherche\Recherche.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache - Client en clair]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache - Client en clair]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Recherche\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Recherche\Recherche.Inputs[Entrée de recherche].Columns[Customer Key]"
+                      cachedDataType="i4"
+                      cachedName="Customer Key"
+                      lineageId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET].Columns[Customer Key]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Customer Key</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Recherche\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Recherche\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Recherche\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Primary Contact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\DFT - Recherche\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Primary Contact]"
+                      name="Primary Contact"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Primary Contact</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Recherche\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Recherche\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Recherche\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Recherche\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Recherche\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Recherche\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Recherche\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Recherche\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Recherche.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\DFT - Recherche\Destination de fichier plat.Inputs[Entrée de destination de fichier plat]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT - Recherche\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DFT - Recherche.Paths[Sortie de source ADO NET]"
+              endId="Package\DFT - Recherche\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de source ADO NET"
+              startId="Package\DFT - Recherche\ADO_SRC - Ventes.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{6BAAF7C8-BFF4-4230-AF7C-A9EBB8267737}"
+      DTS:From="Package\DFT - AlwaysEncrypted - Cache"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT - Recherche" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\DFT - AlwaysEncrypted - Cache"
+          TopLeft="107,120" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT - Recherche"
+          TopLeft="138,233" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="218.75,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Afin d'être utilisée dans une transformation de recherche les données doivent au préalable être décryptées.&#xD;&#xA;Cela nécessite l'utilisation d'un source de données ADO.Net non supportée par la transformation de recherche.&#xD;&#xA;Il est donc nécessaire d'effectuer l'opération en deux étapes : &#xD;&#xA;1 - Remplissage d'une transformation de cache avec les données en clair&#xD;&#xA;2 - Utilisation des données en clair dans le composant de recherche"
+          ParentId="Package"
+          Size="588,90"
+          Id="09a7eb06-2dab-4750-99b8-31ff7d010539"
+          TopLeft="11,8">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - AlwaysEncrypted - Cache">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\DFT - AlwaysEncrypted - Cache\Transformation du cache"
+          TopLeft="79,206" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair"
+          TopLeft="60,49" />
+        <EdgeLayout
+          Id="Package\DFT - AlwaysEncrypted - Cache.Paths[Sortie de source ADO NET]"
+          TopLeft="179.5,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,115"
+              Start="0,0"
+              End="0,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - AlwaysEncrypted - Cache\ADO_SRC - DimCustomer - En clair">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT - Recherche">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\DFT - Recherche\Destination de fichier plat"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\DFT - Recherche\Recherche"
+          TopLeft="41.5,107.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DFT - Recherche\ADO_SRC - Ventes"
+          TopLeft="22,5.5" />
+        <EdgeLayout
+          Id="Package\DFT - Recherche.Paths[Sortie de source ADO NET]"
+          TopLeft="105.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Recherche.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="105.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,20.4453125,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Recherche\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Recherche\ADO_SRC - Ventes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,352 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2018 7:35:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VLFPJJ9"
+  DTS:CreatorName="DESKTOP-VLFPJJ9\chsau"
+  DTS:DTSID="{EFA3A1C5-BAF5-4E1B-84DE-BD10DAAD6EF7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.107"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="3 1 3 - 3 1 6 HDInsight"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{AF737638-38D4-49B9-9ACE-9C6E89BFDBDF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Azure HDInsight Connection Manager]"
+      DTS:CreationName="AzureHDInsight"
+      DTS:DTSID="{26A76641-FBD1-44CA-8862-E8B99CDCC6A1}"
+      DTS:ObjectName="Azure HDInsight Connection Manager">
+      <DTS:ObjectData>
+        <AzureHDInsightConnectionManager
+          ConnectionString="ClusterDnsName=LivreHDInsightCluster.azurehdinsight.net;Username=chsauget;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Azure Resource Manager Connection Manager]"
+      DTS:CreationName="AzureResourceManager"
+      DTS:DTSID="{684E1A68-261E-4CBD-9392-8979303AFA6E}"
+      DTS:ObjectName="Azure Resource Manager Connection Manager">
+      <DTS:ObjectData>
+        <AzureResourceManagerConnectionManager
+          ConnectionString="ApplicationId=198806a3-1f7e-4ea5-9141-e73f615a7e3b;TenantId=41f06c81-c9f4-4dc0-ad8d-8ca09e840041;Environment=AzureCloud;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Azure HDInsight Create Cluster Task"
+      DTS:CreationName="CreateHdiClusterTask"
+      DTS:Description="Azure HDInsight Create Cluster Task"
+      DTS:DTSID="{7D3B7643-03F1-4178-B232-E6154FC262C9}"
+      DTS:ExecutableType="CreateHdiClusterTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure HDInsight Create Cluster Task"
+      DTS:TaskContact="Azure HDInsight Create Cluster Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CreateHdiClusterTask
+          AzureResourceManagerConnectionId="{684E1A68-261E-4CBD-9392-8979303AFA6E}"
+          AzureStorageConnection="{A42C8D74-6FAD-435C-BE02-7763401DCB52}"
+          SubscriptionId="9cf0531d-ac3b-4585-ad1c-e0e1e028b749"
+          ResourceGroup="livre"
+          Location="West Europe"
+          ClusterName="LivreHDInsightCluster"
+          ClusterSize="1"
+          BlobContainer="livre"
+          UserName="chsauget"
+          SshUserName="chsauget"
+          FailIfExists="False">
+          <Password
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPl0E2L5mN0aGuwA9aXqAjwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAX4xKNUgHrvVQPzTrKsCMpjGKs2Tvtzfu0JCAP318k3wAAAAAOgAAAAAIAACAAAABIcbjsZIlgHCJZ24w2RIrlK97qRuiXT7p+SPZGYk1K6BAAAABySyl6zAPv6Be2Fs9rNfi9QAAAAKW8gPsmoT2ay7fRIaKdhjyVa+6qB4EPCwdo2N/R6CB42XvkrVvLYHdPesxs2mdGckW4v6kelR/6FEiLN7fxq08</Password>
+          <SshPassword
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPl0E2L5mN0aGuwA9aXqAjwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACR8ekUPv8VRRs/g7qhgN8vo5MwePIdXEkCBTODYWARiAAAAAAOgAAAAAIAACAAAAAUdLyTJOzejNHPh1IGYWwabLeEeoAkpvjv8VLKdhLIJhAAAABcFnGQraxznwH7VjdRwEdJQAAAAGhqlMsEObYGDBE0M0GQyygPGDzWOdhBuXC1ndSJeXbYFfgJzwDfnOQ7AP8PA88dHJBc5AjXK0umR//Qp+g0HWk</SshPassword>
+        </CreateHdiClusterTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Azure HDInsight Delete Cluster Task"
+      DTS:CreationName="DeleteHdiClusterTask"
+      DTS:Description="Azure HDInsight Delete Cluster Task"
+      DTS:DTSID="{39FB870E-2783-4E29-B13E-DCF775AEFB57}"
+      DTS:ExecutableType="DeleteHdiClusterTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure HDInsight Delete Cluster Task"
+      DTS:TaskContact="Azure HDInsight Delete Cluster Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <DeleteHdiClusterTask
+          AzureResourceManagerConnectionId="{684E1A68-261E-4CBD-9392-8979303AFA6E}"
+          SubscriptionId="9cf0531d-ac3b-4585-ad1c-e0e1e028b749"
+          ResourceGroup="livre"
+          ClusterName="LivreHDInsightCluster"
+          FailIfNotExists="False" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Azure HDInsight Hive Task"
+      DTS:CreationName="HiveTask"
+      DTS:Description="Azure HDInsight Hive Task"
+      DTS:DTSID="{14E52878-4B6C-434B-BBFD-B7C50EBE63D7}"
+      DTS:ExecutableType="HiveTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure HDInsight Hive Task"
+      DTS:TaskContact="Azure HDInsight Hive Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <HiveTask
+          HDInsightConnectionId="{26A76641-FBD1-44CA-8862-E8B99CDCC6A1}"
+          AzureStorageConnectionId="{A42C8D74-6FAD-435C-BE02-7763401DCB52}"
+          BlobContainer="livre"
+          Script="SELECT 1;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Azure HDInsight Pig Task"
+      DTS:CreationName="PigTask"
+      DTS:Description="Azure HDInsight Pig Task"
+      DTS:DTSID="{08DE3C3B-C6C3-4AF4-AB46-B5D98B1C331B}"
+      DTS:ExecutableType="PigTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Azure HDInsight Pig Task"
+      DTS:TaskContact="Azure HDInsight Pig Task; (C) Microsoft Corporation; All Rights Reserved"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <PigTask
+          HDInsightConnectionId="{26A76641-FBD1-44CA-8862-E8B99CDCC6A1}"
+          AzureStorageConnectionId="{A42C8D74-6FAD-435C-BE02-7763401DCB52}"
+          BlobContainer="livre"
+          LocalLogFolder="C:\test"
+          BlobName="scripts/MyScript.pig" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{6553E54F-5FA8-4C46-B23D-435622000CC6}"
+      DTS:From="Package\Azure HDInsight Create Cluster Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Azure HDInsight Hive Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB81D1D2-2BBA-4C10-8F96-36289C020277}"
+      DTS:From="Package\Azure HDInsight Hive Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 1"
+      DTS:To="Package\Azure HDInsight Delete Cluster Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F4503564-05DE-4AD2-A8B1-599440647114}"
+      DTS:From="Package\Azure HDInsight Create Cluster Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 2"
+      DTS:To="Package\Azure HDInsight Pig Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{226F53A4-A9FA-403A-A3DD-DE4F2F2C2FFD}"
+      DTS:From="Package\Azure HDInsight Pig Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\Azure HDInsight Delete Cluster Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Azure HDInsight Create Cluster Task"
+          TopLeft="108.5,152.5" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Azure HDInsight Delete Cluster Task"
+          TopLeft="109,356.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Azure HDInsight Hive Task"
+          TopLeft="63.5,254.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Azure HDInsight Pig Task"
+          TopLeft="307,252" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="234,194.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-68,60"
+              Start="0,0"
+              End="-68,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-64,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-64,30"
+                    Point2="-68,30"
+                    Point3="-68,34" />
+                  <mssgle:LineSegment
+                    End="-68,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="166,296.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="68,60"
+              Start="0,0"
+              End="68,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="64,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64,30"
+                    Point2="68,30"
+                    Point3="68,34" />
+                  <mssgle:LineSegment
+                    End="68,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="274.5,194.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="132,57.5"
+              Start="0,0"
+              End="132,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2185273159145" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2185273159145"
+                    Point2="0,23.2185273159145"
+                    Point3="4,23.2185273159145" />
+                  <mssgle:LineSegment
+                    End="128,23.2185273159145" />
+                  <mssgle:CubicBezierSegment
+                    Point1="128,23.2185273159145"
+                    Point2="132,23.2185273159145"
+                    Point3="132,27.2185273159145" />
+                  <mssgle:LineSegment
+                    End="132,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="406.5,294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-132.166666666667,62.5"
+              Start="0,0"
+              End="-132.166666666667,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2615262321145" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.2615262321145"
+                    Point2="0,37.2615262321145"
+                    Point3="-4,37.2615262321145" />
+                  <mssgle:LineSegment
+                    End="-128.166666666667,37.2615262321145" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-128.166666666667,37.2615262321145"
+                    Point2="-132.166666666667,37.2615262321145"
+                    Point3="-132.166666666667,41.2615262321145" />
+                  <mssgle:LineSegment
+                    End="-132.166666666667,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Utilisation des principales tâches de cluster HDInsight.&#xD;&#xA;/!\ Provisionner un cluster coûte chère, ne pas oublier de supprimer les ressources."
+          ParentId="Package"
+          Size="433,60"
+          Id="53164b3b-d881-44e2-9b52-2bb04a970ab8"
+          TopLeft="38,41">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF1E1E1E">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
